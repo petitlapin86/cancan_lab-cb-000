@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
+
+  resources :notes
+  get 'notes/:id/edit' => 'notes#edit'
+
+  root 'notes#index'
+
+  post '/login' => 'sessions#create'
+  post '/logout' => 'sessions#destroy'
+    # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
